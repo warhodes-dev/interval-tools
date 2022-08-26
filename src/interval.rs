@@ -1,63 +1,19 @@
-//! Tools for creating, manipulating, storing, and evaluating intervals of ordered items.
-//!
-//! Module Overview
-//! =======
-//!
-//! Interval
-//! --------
-//! Provides the `Interval<T>` type which represents a single interval between two `Endpoint<T>`, 
-//! expressed as the member fields `left` and `right`. Interval values always 'ascend' from left 
-//! to right, i.e. `left <= right`. 
-//!
-//! `Endpoint<T>` can be `Open(T)`, `Closed(T)`, or `Unbounded`.
-//!
-//! Intervals can be queried for properties such as overlapping:
-//! ```
-//! use interval_tools::Interval;
-//!
-//! // This interval includes 0 but excludes 3 as per the std::ops::Range syntax (x..y)
-//! let open = Interval::from(0..3);
-//! // This interval includes both 0 and 3
-//! let closed = Interval::from(0..=3);
-//!
-//! let interval = Interval::from(3..6);
-//! 
-//! assert!(!interval.overlaps(&open));
-//! assert!(interval.overlaps(&closed));
-//! ```
-//!
-//! Utility functions can also be used to generate new intervals from existing intervals:
-//! ```
-//! use interval_tools::{Interval, union};
-//!
-//! let x = Interval::from(0..=5);
-//! let y = Interval::from(5..10);
-//! let xy = union(&x, &y).unwrap();
-//!
-//! assert_eq!(xy, Interval::from(0..10));
-//! ```
-//! 
-//! ---
-//!
-//! > *In the future, this crate will support various interval based data structures like an
-//! > overlapping range stack, an interval graph, and a sorted interval tree.*
-
-use std::fmt::Debug;
+/*use std::fmt::Debug;
 
 /// The endpoints of an `Interval<T>`
 ///
-/// Can be `Open(T)`, `Closed(T)`, or `Unbounded`
+/// Can be `Open(T)`, `Closed(T)`, or Unbounded
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum Endpoint<T> {
-    /// An open endpoint does not include the representative value (e.g. `Open(3)` does not include 3).
+    /// An open endpoint does not include the representative value (e.g. Open(3) does not include 3).
     Open(T),
-    /// A closed endpoint does include the representative value (e.g. `Closed(3)` includes 3).
+    /// A closed endpoint does include the representative value (e.g. Closed(3) includes 3).
     Closed(T),
     /// An unbounded endpoint contains all values in that direction.
     Unbounded,
 } 
 
-/// Represents a single interval between two `Endpoint<T>`, expressed as the member fields `left` and `right`.
+/// Represents a single interval between two Endpoint<T>, expressed as the member fields left and right.
 ///
 /// Interval values always ‘ascend’ from left to right, i.e. left <= right.
 #[derive(Debug, PartialEq, Eq, Copy, Clone)]
@@ -361,4 +317,4 @@ where
 
 
 
-//
+*/
